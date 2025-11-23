@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     // 現在のページURLからファイル名を取得
+    // train-news.html または general-news.html
     const currentPage = window.location.pathname.split('/').pop();
 
     let newsListElement;
@@ -7,24 +8,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 現在のページに応じて、挿入する要素とフィルターするタイプを設定
     if (currentPage === 'train-news.html') {
-        newsListElement = document.getElementById('train-news-list');
+        // IDが 'train-news-list' であることを確認
+        newsListElement = document.getElementById('train-news-list'); 
         filterType = 'rail'; // 電車関連
     } else if (currentPage === 'general-news.html') {
+        // IDが 'general-news-list' であることを確認
         newsListElement = document.getElementById('general-news-list');
         filterType = 'general'; // その他
     } else {
-        // index.htmlなど、お知らせページ以外では実行しない
+        // お知らせページ以外では処理しない
         return;
     }
 
-    if (!newsListElement) return; // 要素がない場合は終了
+    if (!newsListElement) {
+        // 要素がHTML内に見つからない場合
+        console.error(`Error: News list element not found for ${currentPage}.`);
+        return;
+    }
 
+    // JSONファイルを読み込む関数
     const loadNews = async () => {
         try {
+            // news_data.jsonを非同期でフェッチ
             const response = await fetch('news_data.json');
+            
             if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
+                // ファイルが見つからない、またはサーバーエラーの場合
+                throw new Error(`お知らせデータの読み込みに失敗 (HTTP Status: ${response.status})`);
             }
+            
+            // JSONのパースを試みる
             const newsData = await response.json();
 
             // 1. データを日付で降順ソート
@@ -44,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
             filteredNews.forEach(item => {
                 const article = document.createElement('article');
                 article.className = `news-article ${item.isImportant ? 'important' : ''}`;
-                article.id = item.id; // ページ内リンク用にIDを設定
+                article.id = item.id; 
 
                 article.innerHTML = `
                     <span class="news-category">【${item.category}】</span>
@@ -59,9 +72,10 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
         } catch (error) {
-            console.error("Failed to load news data:", error);
+            console.error("お知らせデータの処理中にエラーが発生しました:", error);
             newsListElement.innerHTML = `<p style="color:red; text-align:center;">
-                お知らせデータの読み込みに失敗しました。
+                データの読み込みまたは表示中にエラーが発生しました。<br>
+                詳細: ${error.message || '不明なエラー'}
             </p>`;
         }
     };
