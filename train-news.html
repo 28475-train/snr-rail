@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Train-News | 篠ノ井乗務区の公式ホームページ</title>
+    <title>お知らせ | 篠ノ井乗務区の公式ホームページ</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -15,54 +15,36 @@
     </div>
 
     <div class="important-info-bar">
-        【重要】お問い合わせフォームのシステムメンテナンスについて<a href="#">詳細はこちら</a>
+        【重要】お問い合わせ窓口は一時的に非公開となっております。 <a href="train-news.html#contact-temporary-closure">詳細はこちら</a>
     </div>
 
     <header>
-        <h1>Train-News (お知らせ)</h1>
-        </header>
+        <h1>お知らせ (Train-News)</h1>
+    </header>
 
     <main>
         <div id="search-container">
             <input type="text" id="search-input" placeholder="キーワードを入力して検索">
             <button onclick="searchSite()">検索</button>
         </div>
-        <div id="search-results">
-            </div>
+        <div id="search-results"></div>
 
         <section class="card news-archive">
             <h2>📰 過去のお知らせ一覧</h2>
             
-            <article class="news-article">
-                <h2>ウェブサイトデザインをレスポンシブデザインに大幅アップデートしました！</h2>
-                <span class="news-date">公開日: 2025年11月23日</span>
-                <div class="news-content">
-                    <p>日頃より篠ノ井乗務区公式ウェブサイトをご利用いただき、誠にありがとうございます。この度、より快適にご利用いただくため、サイトのデザインを全面的にリニューアルいたしました。</p>
-                    
-                    <h3>主な変更点：</h3>
-                    <ul>
-                        <li>**レスポンシブデザイン**：スマートフォンやタブレットなど、あらゆるデバイスで最適に表示されます。</li>
-                        <li>**ナビゲーションの改善**：ドロップダウンメニューの採用により、目的の情報へ素早くアクセスできるようになりました。</li>
-                        <li>**高速化**：ページの読み込み速度を改善し、快適にご利用いただけます。</li>
-                    </ul>
-                    <p>今後とも、皆様に鉄道の魅力をお届けできるよう、コンテンツの充実に努めてまいります。</p>
-                </div>
-                <hr>
-            </article>
-
-            <article class="news-article">
-                <h2>長野電鉄の車両特集記事を公開しました</h2>
-                <span class="news-date">公開日: 2025年11月10日</span>
-                <div class="news-content">
-                    <p>地域とのつながりをテーマに、長野電鉄で活躍する様々な車両の歴史と魅力を深掘りした特集記事を公開しました。写真記録も合わせてご覧ください。</p>
-                </div>
-                <hr>
-            </article>
-
+            <div id="news-list">
+                <p style="text-align:center;">お知らせを読み込み中...</p>
+            </div>
+            
             <p style="text-align: center;">-- 記事の終わり --</p>
+        </section>
+        
+        <section class="info-footer card">
+             <p class="ai-note">当サイトでは、Google Geminiなどの生成AI技術を活用し、サービスの品質向上に努めております。</p>
         </section>
     </main>
 
     <script src="navigation.js"></script>
+    <script src="load_news.js"></script> <-- ★新しいJSファイルを読み込みます★
 </body>
 </html>
