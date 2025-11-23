@@ -1,4 +1,4 @@
-// navigation.js (ナビゲーション、フッター、プリローダー、検索ロジックを統合)
+// navigation.js (ドロップダウンとハンバーガーメニュー対応版)
 
 // ----------------------------------------------------
 // 1. ナビゲーションとフッターのHTML構造を定義
@@ -7,20 +7,45 @@
 // ナビゲーションのHTML構造
 const navContent = `
     <nav class="global-nav">
-        <a href="index.html">ホーム</a>
-        <a href="train-news.html">Train-News</a> 
-        <a href="#">活動理念</a>
-        <a href="#">沿革</a>
-        <a href="#">運営者情報</a>
-        <a href="#">ご利用案内</a> 
-        <a href="#">お知らせ</a> 
-        <a href="#">写真記録</a>
-        <a href="#">問い合わせ</a>
-        <a href="#">その他</a> 
+        <button class="menu-toggle" aria-expanded="false" aria-controls="menu-list">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        
+        <ul id="menu-list" class="nav-list">
+            <li><a href="index.html">ホーム</a></li>
+            <li><a href="train-news.html">Train-News</a></li>
+            <li><a href="#">活動理念</a></li>
+            <li><a href="#">沿革</a></li>
+            <li><a href="#">運営者情報</a></li>
+            
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle">ご利用案内</a> 
+                <ul class="dropdown-menu">
+                    <li><a href="#">ご利用規約</a></li>
+                    <li><a href="#">免責事項</a></li>
+                    <li><a href="#">プライバシーポリシー</a></li>
+                </ul>
+            </li>
+
+            <li><a href="#">お知らせ</a></li>
+            <li><a href="#">写真記録</a></li>
+            <li><a href="#">問い合わせ</a></li>
+            
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle">その他</a> 
+                <ul class="dropdown-menu">
+                    <li><a href="#">よくある質問</a></li>
+                    <li><a href="#">SNS/外部リンク</a></li>
+                    <li><a href="#">サイトマップ</a></li>
+                </ul>
+            </li>
+        </ul>
     </nav>
 `;
 
-// フッターのHTML構造 (ロゴ画像リンクを含む)
+// フッターのHTML構造 (変更なし)
 const footerContent = `
     <footer>
         <p>運営：篠ノ井乗務区</p>
@@ -36,7 +61,7 @@ const footerContent = `
 
 
 // ----------------------------------------------------
-// 2. 挿入機能
+// 2. 挿入機能とイベントリスナーの追加
 // ----------------------------------------------------
 
 function insertNavigation() {
@@ -45,7 +70,22 @@ function insertNavigation() {
         const h1 = header.querySelector('h1');
         if (h1) {
             h1.insertAdjacentHTML('afterend', navContent);
+            setupMenuToggle(); // ハンバーガーメニューのイベントを設定
         }
+    }
+}
+
+function setupMenuToggle() {
+    const toggleButton = document.querySelector('.menu-toggle');
+    const menuList = document.getElementById('menu-list');
+
+    if (toggleButton && menuList) {
+        // メニュー開閉 (ハンバーガー)
+        toggleButton.addEventListener('click', () => {
+            const isExpanded = toggleButton.getAttribute('aria-expanded') === 'true' || false;
+            toggleButton.setAttribute('aria-expanded', !isExpanded);
+            menuList.classList.toggle('is-open'); // メニューを開閉するクラスをトグル
+        });
     }
 }
 

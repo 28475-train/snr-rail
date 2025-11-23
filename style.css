@@ -1,4 +1,4 @@
-/* style.css (修正版: PC表示の崩れ、ドロップダウンの常時表示を修正) */
+/* style.css (修正版: PCとスマホのレスポンシブ対応) */
 
 /* 全体のフォント設定と余白のリセット */
 body {
@@ -54,10 +54,10 @@ header h1 {
 /* ナビゲーションリスト (PCデフォルト表示) */
 /* ---------------------------------------------------- */
 .nav-list {
-    list-style: none; /* リスト記号（•や○）を削除 */
+    list-style: none; /* リスト記号を削除 */
     padding: 0;
     margin: 0;
-    display: flex; /* 横並び */
+    display: flex; /* PC表示では横並び */
     justify-content: center; 
     flex-wrap: wrap; 
     max-width: 960px;
@@ -67,7 +67,6 @@ header h1 {
 
 .nav-list li {
     position: relative;
-    /* PC表示ではドロップダウン内のサブ項目リスト記号を非表示に */
     list-style: none; 
 }
 
@@ -85,12 +84,34 @@ header h1 {
     text-decoration: none;
 }
 
+/* ハンバーガーメニューのボタンはPCでは非表示 */
+.menu-toggle {
+    display: none; 
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    position: absolute;
+    top: 0; 
+    right: 10px;
+    z-index: 110;
+}
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 5px 0;
+    transition: 0.4s;
+}
+
+
 /* ---------------------------------------------------- */
 /* ドロップダウンメニューのスタイル (PC) */
 /* ---------------------------------------------------- */
 
 .dropdown-menu {
-    list-style: none; /* ドロップダウンメニュー内のリスト記号も削除 */
+    list-style: none; 
     padding: 10px 0;
     margin: 0;
     background-color: #3b887a; 
@@ -99,7 +120,7 @@ header h1 {
     left: 0;
     min-width: 180px;
     z-index: 100;
-    display: none; /* ★★★ 修正: PC表示ではデフォルトで非表示にする ★★★ */
+    display: none; /* デフォルトで非表示 */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 0 0 4px 4px;
     text-align: left;
@@ -367,38 +388,16 @@ footer p {
 }
 
 /* ---------------------------------------------------- */
-/* ハンバーガーメニュー スタイル (モバイル対応) */
+/* メディアクエリ: 画面幅が800px以下の場合のスタイル (スマホ対応) */
 /* ---------------------------------------------------- */
-.menu-toggle {
-    display: none; /* PCでは非表示 */
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 10px;
-    position: absolute;
-    top: 0; 
-    right: 10px;
-    z-index: 110;
-}
-
-.bar {
-    display: block;
-    width: 25px;
-    height: 3px;
-    background-color: white;
-    margin: 5px 0;
-    transition: 0.4s;
-}
-
-/* メディアクエリ: 画面幅が800px以下の場合のスタイル */
 @media (max-width: 800px) {
     
     /* 1. ハンバーガーメニューの表示 */
     .menu-toggle {
-        display: block;
+        display: block; /* ボタンを表示 */
     }
     
-    /* 2. メニューを縦並びのモバイルメニューに変換 */
+    /* 2. PC用のメニューを縦並びのモバイルメニューに変換 */
     .global-nav {
         justify-content: flex-start;
         padding: 10px 0; 
@@ -411,7 +410,7 @@ footer p {
         text-align: left;
     }
     
-    /* 3. is-open クラスでメニューを開く */
+    /* 3. is-open クラスがトグルされたらメニューを開く */
     .nav-list.is-open {
         display: flex;
     }
@@ -422,14 +421,14 @@ footer p {
     }
     
     .dropdown-menu {
-        position: static; /* absoluteからstaticに変更 */
+        position: static; /* absoluteからstaticに変更し、メニューの縦の展開をスムーズにする */
         width: 100%;
         background-color: #3b887a;
         box-shadow: none;
         padding: 0;
     }
     
-    /* モバイルではホバーではなくクリック（タップ）で開閉するため、ホバー効果を無効化 */
+    /* モバイルではホバーではなくクリック（タップ）で開閉するため、ホバーによるドロップダウン表示を無効化 */
     .dropdown:hover .dropdown-menu {
         display: none; 
     }
