@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const header = document.querySelector('header');
         if (!header) return;
 
-        // navContent変数: ナビゲーションとフッターのHTML構造
         const navContent = `
             <nav role="navigation">
                 <div id="menuToggle">
@@ -15,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <span></span>
                     <ul id="menu-list" class="nav-list">
                         <li><a href="index.html">ホーム</a></li>
-                        <li><a href="train-news.html">Train-News (鉄道)</a></li>  <-- ★リンク1★
+                        <li><a href="train-news.html">Train-News (鉄道)</a></li>
                         <li><a href="mission.html">活動理念</a></li>
                         <li><a href="#">沿革</a></li>
                         <li><a href="operator-info.html">運営者情報</a></li>
@@ -23,8 +22,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         <li class="dropdown">
                             <a href="#">ご利用案内 <span class="dropdown-arrow">▼</span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="train-news.html">Train-News (鉄道)</a></li> <-- ★リンク2★
-                                <li><a href="general-news.html">お知らせ全般</a></li>       <-- ★リンク3★
+                                <li><a href="train-news.html">Train-News (鉄道)</a></li>
+                                <li><a href="general-news.html">お知らせ全般</a></li>
                                 <li><a href="#">写真記録</a></li>
                                 <li><a href="contact.html">お問い合わせ</a></li>
                                 <li><a href="#">よくある質問</a></li>
@@ -47,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <a href="#">沿革</a> |
                 <a href="operator-info.html">運営者情報</a> |
                 <a href="train-news.html">Train-News</a> |
-                <a href="general-news.html">お知らせ</a> | <-- ★リンク4★
+                <a href="general-news.html">お知らせ</a> |
                 <a href="contact.html">お問い合わせ</a>
             </div>
             <footer>
@@ -68,21 +67,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
-    // プリローダーの非表示処理は load_news.js に委譲します
+    // ★★★ プリローダーの表示開始処理を無効化（即非表示）★★★
     const startPreloader = () => {
         const preloader = document.getElementById('preloader');
         if (preloader) {
-            // プログレスバー風のテキスト更新
-            let progress = 0;
-            const interval = setInterval(() => {
-                progress += 20;
-                const loadingText = document.getElementById('loading-text');
-                if (loadingText) loadingText.textContent = `読み込み中... ${Math.min(progress, 90)}%`; // 90%で止めておく
-                
-                if (progress >= 100) {
-                    clearInterval(interval);
-                }
-            }, 200);
+            // ローディング要素自体を即座に非表示にする
+            preloader.style.display = 'none'; 
         }
     };
     
@@ -90,5 +80,5 @@ document.addEventListener('DOMContentLoaded', () => {
     insertNavigation();
     insertFooter();
     highlightActiveLink(); 
-    startPreloader(); // プリローダーを動かし始める
+    startPreloader(); // プリローダーを非表示にする関数を実行
 });
