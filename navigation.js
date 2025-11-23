@@ -1,4 +1,4 @@
-// navigation.js (ドロップダウンとハンバーガーメニュー対応版)
+// navigation.js (最新のレスポンシブ対応、活動理念ページ対応版)
 
 // ----------------------------------------------------
 // 1. ナビゲーションとフッターのHTML構造を定義
@@ -16,7 +16,7 @@ const navContent = `
         <ul id="menu-list" class="nav-list">
             <li><a href="index.html">ホーム</a></li>
             <li><a href="train-news.html">Train-News</a></li>
-            <li><a href="#">活動理念</a></li>
+            <li><a href="mission.html">活動理念</a></li> 
             <li><a href="#">沿革</a></li>
             <li><a href="#">運営者情報</a></li>
             
@@ -45,7 +45,7 @@ const navContent = `
     </nav>
 `;
 
-// フッターのHTML構造 (変更なし)
+// フッターのHTML構造 (ロゴ画像リンクを含む)
 const footerContent = `
     <footer>
         <p>運営：篠ノ井乗務区</p>

@@ -1,12 +1,12 @@
-/* style.css (修正版: PCとスマホのレスポンシブ対応) */
+/* style.css (最新のレスポンシブ対応、活動理念ページスタイルを含む全コード) */
 
 /* 全体のフォント設定と余白のリセット */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #e0e0e0; 
-    color: #333; 
+    background-color: #e0e0e0; /* Google Sitesのような明るいグレーの背景 */
+    color: #333; /* 文字色 */
     line-height: 1.6;
 }
 
@@ -14,7 +14,7 @@ body {
 /* 黄色の【重要】お知らせバー スタイル */
 /* ---------------------------------------------------- */
 .important-info-bar {
-    background-color: #ffc107; 
+    background-color: #ffc107; /* 黄色 */
     color: #333;
     text-align: center;
     padding: 8px 0;
@@ -54,7 +54,7 @@ header h1 {
 /* ナビゲーションリスト (PCデフォルト表示) */
 /* ---------------------------------------------------- */
 .nav-list {
-    list-style: none; /* リスト記号を削除 */
+    list-style: none; /* リスト記号（•や○）を削除 */
     padding: 0;
     margin: 0;
     display: flex; /* PC表示では横並び */
@@ -105,7 +105,6 @@ header h1 {
     transition: 0.4s;
 }
 
-
 /* ---------------------------------------------------- */
 /* ドロップダウンメニューのスタイル (PC) */
 /* ---------------------------------------------------- */
@@ -141,7 +140,7 @@ header h1 {
 }
 
 /* ---------------------------------------------------- */
-/* メインコンテンツ以降のスタイル (変更なし) */
+/* メインコンテンツ以降のスタイル */
 /* ---------------------------------------------------- */
 
 main {
@@ -150,6 +149,7 @@ main {
     padding: 0 20px; 
 }
 
+/* 各セクションのデザイン (カードスタイル) */
 .card { 
     background-color: white;
     padding: 30px;
@@ -241,6 +241,7 @@ hr {
     text-align: center; 
 }
 
+/* フッターのデザイン */
 footer {
     text-align: center;
     padding: 25px; 
@@ -270,6 +271,7 @@ footer p {
     opacity: 0.8; 
 }
 
+/* ニュース記事の詳細 */
 .news-article h2 {
     color: #2e6b5f; 
 }
@@ -286,7 +288,58 @@ footer p {
 }
 
 /* ---------------------------------------------------- */
-/* プリローダー スタイル (変更なし) */
+/* 活動理念ページ用スタイル (新規) */
+/* ---------------------------------------------------- */
+
+.mission-statement h2 {
+    color: #2e6b5f; 
+}
+
+.mission-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 30px;
+}
+
+.mission-list li {
+    background-color: #f7f7f7; 
+    border-left: 5px solid #007bff; 
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.mission-list h3 {
+    color: #007bff; 
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-size: 1.2em;
+}
+
+.mission-list p {
+    margin: 0;
+    padding-left: 5px;
+    font-size: 1em;
+}
+
+.future-plan {
+    margin-top: 30px;
+    padding: 15px;
+    background-color: #fffbe6; 
+    border: 1px solid #ffc107;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.future-plan p {
+    margin: 0;
+    color: #333;
+}
+
+
+/* ---------------------------------------------------- */
+/* プリローダー スタイル */
 /* ---------------------------------------------------- */
 
 #preloader {
@@ -330,7 +383,7 @@ footer p {
 }
 
 /* ---------------------------------------------------- */
-/* 検索フォーム スタイル (変更なし) */
+/* 検索フォーム スタイル */
 /* ---------------------------------------------------- */
 #search-container {
     max-width: 960px;
@@ -397,7 +450,7 @@ footer p {
         display: block; /* ボタンを表示 */
     }
     
-    /* 2. PC用のメニューを縦並びのモバイルメニューに変換 */
+    /* 2. メニューを縦並びのモバイルメニューに変換 */
     .global-nav {
         justify-content: flex-start;
         padding: 10px 0; 
@@ -421,14 +474,14 @@ footer p {
     }
     
     .dropdown-menu {
-        position: static; /* absoluteからstaticに変更し、メニューの縦の展開をスムーズにする */
+        position: static; 
         width: 100%;
         background-color: #3b887a;
         box-shadow: none;
         padding: 0;
     }
     
-    /* モバイルではホバーではなくクリック（タップ）で開閉するため、ホバーによるドロップダウン表示を無効化 */
+    /* モバイルではホバーによるドロップダウン表示を無効化 */
     .dropdown:hover .dropdown-menu {
         display: none; 
     }
