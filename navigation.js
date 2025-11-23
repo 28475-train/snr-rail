@@ -1,10 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // 現在のページURLを取得し、アクティブなリンクをハイライト
     const currentPath = window.location.pathname.split('/').pop() || 'index.html';
 
     const insertNavigation = () => {
         const header = document.querySelector('header');
         if (!header) return;
 
+        // navContent変数: ナビゲーションとフッターのHTML構造
         const navContent = `
             <nav role="navigation">
                 <div id="menuToggle">
@@ -67,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
-    // ★★★ プリローダーの表示開始処理を削除し、要素を即座に非表示にする関数に置き換え ★★★
+    // ★★★ プリローダーの表示開始処理を削除し、要素を即座に非表示にする関数に置き換えました ★★★
     const startPreloader = () => {
         const preloader = document.getElementById('preloader');
         if (preloader) {
