@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
-    // ★★★ プリローダーの表示開始処理を無効化（即非表示）★★★
+    // ★★★ プリローダーの表示開始処理を削除し、要素を即座に非表示にする関数に置き換え ★★★
     const startPreloader = () => {
         const preloader = document.getElementById('preloader');
         if (preloader) {
@@ -80,5 +80,5 @@ document.addEventListener('DOMContentLoaded', () => {
     insertNavigation();
     insertFooter();
     highlightActiveLink(); 
-    startPreloader(); // プリローダーを非表示にする関数を実行
+    startPreloader(); 
 });
