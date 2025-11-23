@@ -186,3 +186,6 @@ window.searchSite = function() { // HTMLから呼び出すため、windowオブ�
 insertNavigation();
 insertFooter();
 startPreloader();
+
+
+
