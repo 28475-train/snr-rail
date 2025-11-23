@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 Not Found | 篠ノ井乗務区の公式ホームページ</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+    <div id="preloader" style="display:none;"></div> 
+
+    <header>
+        <h1>エラー (404 Not Found)</h1>
+        </header>
+
+    <main>
+        <section class="error-content card" style="text-align: center;">
+            <h2>🚨 ページが見つかりません (404 Error)</h2>
+            
+            <div class="error-message">
+                <p>大変申し訳ございません。お探しのページは、移動または削除された可能性があります。</p>
+                <p>URLが正しいかをご確認いただくか、以下のボタンからトップページへお戻りください。</p>
+            </div>
+            
+            <div class="buttons" style="justify-content: center;">
+                <a href="index.html" class="button" style="background-color: #3b887a;">
+                    🏠 トップページへ戻る
+                </a>
+                <a href="train-news.html" class="button">
+                    📰 お知らせ一覧を見る
+                </a>
+            </div>
+            
+            <div id="search-container" style="margin-top: 30px;">
+                <input type="text" id="search-input" placeholder="サイト内を検索">
+                <button onclick="searchSite()">検索</button>
+            </div>
+            <div id="search-results"></div>
+            
+        </section>
+    </main>
+
+    <script src="navigation.js"></script>
+</body>
+</html>
