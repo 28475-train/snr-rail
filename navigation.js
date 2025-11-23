@@ -1,12 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 現在のページURLを取得し、アクティブなリンクをハイライト
     const currentPath = window.location.pathname.split('/').pop() || 'index.html';
 
     const insertNavigation = () => {
+        // ヘッダー要素を確実に取得
         const header = document.querySelector('header');
-        if (!header) return;
+        
+        // ヘッダーが見つからなかった場合は処理を中断
+        if (!header) {
+            console.error("Error: Header element (<header>) not found. Cannot insert navigation.");
+            return;
+        }
 
-        // navContent変数: ナビゲーションとフッターのHTML構造
+        // navContent変数: ナビゲーションのHTML構造
         const navContent = `
             <nav role="navigation">
                 <div id="menuToggle">
@@ -36,6 +41,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             </nav>
         `;
+        
+        // headerの**内側**にナビゲーション要素を追加
         header.innerHTML += navContent;
     };
 
@@ -69,17 +76,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
-    // ★★★ プリローダーの表示開始処理を削除し、要素を即座に非表示にする関数に置き換えました ★★★
     const startPreloader = () => {
         const preloader = document.getElementById('preloader');
         if (preloader) {
-            // ローディング要素自体を即座に非表示にする
             preloader.style.display = 'none'; 
         }
     };
     
-    // 5. 実行
-    insertNavigation();
+    // 5. 実行順序の確認
+    insertNavigation(); // ★最優先でナビゲーションを挿入★
     insertFooter();
     highlightActiveLink(); 
     startPreloader(); 
