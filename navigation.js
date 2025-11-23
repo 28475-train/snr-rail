@@ -5,13 +5,12 @@ document.addEventListener('DOMContentLoaded', () => {
         // ヘッダー要素を確実に取得
         const header = document.querySelector('header');
         
-        // ヘッダーが見つからなかった場合は処理を中断
+        // ヘッダーが見つからなかった場合は処理を中断し、エラーをコンソールに出力
         if (!header) {
             console.error("Error: Header element (<header>) not found. Cannot insert navigation.");
             return;
         }
 
-        // navContent変数: ナビゲーションのHTML構造
         const navContent = `
             <nav role="navigation">
                 <div id="menuToggle">
@@ -42,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
             </nav>
         `;
         
-        // headerの**内側**にナビゲーション要素を追加
+        // headerのinnerHTMLに、既存のコンテンツ（<h1>）を残しつつナビゲーションを追加
         header.innerHTML += navContent;
     };
 
@@ -76,6 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
+    // プリローダーを即座に非表示にする処理
     const startPreloader = () => {
         const preloader = document.getElementById('preloader');
         if (preloader) {
@@ -83,8 +83,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
     
-    // 5. 実行順序の確認
-    insertNavigation(); // ★最優先でナビゲーションを挿入★
+    // 5. 実行
+    insertNavigation(); // ナビゲーションをヘッダーに挿入
     insertFooter();
     highlightActiveLink(); 
     startPreloader(); 
