@@ -1,0 +1,440 @@
+/* style.css (修正版: PC表示の崩れ、ドロップダウンの常時表示を修正) */
+
+/* 全体のフォント設定と余白のリセット */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e0e0e0; 
+    color: #333; 
+    line-height: 1.6;
+}
+
+/* ---------------------------------------------------- */
+/* 黄色の【重要】お知らせバー スタイル */
+/* ---------------------------------------------------- */
+.important-info-bar {
+    background-color: #ffc107; 
+    color: #333;
+    text-align: center;
+    padding: 8px 0;
+    font-size: 0.9em;
+    font-weight: bold;
+}
+.important-info-bar a {
+    color: #007bff;
+    text-decoration: underline;
+    margin-left: 10px;
+}
+
+/* ヘッダーのデザイン */
+header {
+    background-color: #275249; 
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    margin: 0;
+    padding-bottom: 10px; 
+    font-size: 2em;
+}
+
+/* グローバルナビゲーションのコンテナ */
+.global-nav {
+    background-color: #2e6b5f; 
+    padding: 10px 0;
+    text-align: center;
+    position: relative; 
+}
+
+/* ---------------------------------------------------- */
+/* ナビゲーションリスト (PCデフォルト表示) */
+/* ---------------------------------------------------- */
+.nav-list {
+    list-style: none; /* リスト記号（•や○）を削除 */
+    padding: 0;
+    margin: 0;
+    display: flex; /* 横並び */
+    justify-content: center; 
+    flex-wrap: wrap; 
+    max-width: 960px;
+    margin: 0 auto; 
+    font-size: 0.95em; 
+}
+
+.nav-list li {
+    position: relative;
+    /* PC表示ではドロップダウン内のサブ項目リスト記号を非表示に */
+    list-style: none; 
+}
+
+.nav-list a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 18px; 
+    font-weight: bold;
+    transition: background-color 0.3s;
+    display: block; 
+}
+
+.nav-list a:hover {
+    background-color: #3b887a; 
+    text-decoration: none;
+}
+
+/* ---------------------------------------------------- */
+/* ドロップダウンメニューのスタイル (PC) */
+/* ---------------------------------------------------- */
+
+.dropdown-menu {
+    list-style: none; /* ドロップダウンメニュー内のリスト記号も削除 */
+    padding: 10px 0;
+    margin: 0;
+    background-color: #3b887a; 
+    position: absolute;
+    top: 100%; 
+    left: 0;
+    min-width: 180px;
+    z-index: 100;
+    display: none; /* ★★★ 修正: PC表示ではデフォルトで非表示にする ★★★ */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 0 0 4px 4px;
+    text-align: left;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block; /* PC: マウスオーバーでのみ表示 */
+}
+
+.dropdown-menu a {
+    padding: 8px 15px;
+    font-weight: normal;
+    font-size: 0.9em;
+}
+
+.dropdown-menu a:hover {
+    background-color: #499e8d; 
+}
+
+/* ---------------------------------------------------- */
+/* メインコンテンツ以降のスタイル (変更なし) */
+/* ---------------------------------------------------- */
+
+main {
+    max-width: 960px; 
+    margin: 20px auto; 
+    padding: 0 20px; 
+}
+
+.card { 
+    background-color: white;
+    padding: 30px;
+    margin-bottom: 20px;
+    border-radius: 8px; 
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); 
+}
+
+.card h2 {
+    color: #007bff;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.social-link {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-left: 5px solid #007bff;
+    border-radius: 4px;
+}
+.social-link small {
+    display: block; 
+    margin-top: 5px;
+    color: #666;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #eee;
+    margin: 30px 0;
+}
+
+.buttons {
+    display: flex; 
+    gap: 15px; 
+    margin-top: 25px;
+    flex-wrap: wrap; 
+    justify-content: center; 
+}
+
+.button {
+    display: inline-block;
+    padding: 12px 25px; 
+    background-color: #28a745; 
+    color: white !important; 
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s; 
+}
+
+.button:hover {
+    background-color: #1e7e34;
+    text-decoration: none; 
+    transform: translateY(-2px); 
+}
+
+.maintenance-text {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #dc3545; 
+    text-align: center; 
+}
+
+.maintenance-status {
+    background-color: #dc3545;
+    color: white;
+    padding: 5px 10px; 
+    border-radius: 4px;
+    margin-left: 10px;
+    display: inline-block; 
+}
+
+.ai-note {
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 20px;
+    text-align: center; 
+}
+
+footer {
+    text-align: center;
+    padding: 25px; 
+    background-color: #333;
+    color: white;
+    margin-top: 30px;
+    font-size: 0.9em;
+}
+footer p {
+    margin: 5px 0;
+}
+
+.official-badge {
+    margin-top: 15px; 
+    line-height: 1; 
+}
+
+.footer-badge-img {
+    width: 80px; 
+    height: auto;
+    display: inline-block; 
+    border: none;
+    vertical-align: middle;
+    transition: opacity 0.3s;
+}
+.footer-badge-img:hover {
+    opacity: 0.8; 
+}
+
+.news-article h2 {
+    color: #2e6b5f; 
+}
+.news-date {
+    font-size: 0.9em;
+    color: #999;
+    margin-top: -10px;
+    margin-bottom: 20px;
+    display: block;
+}
+.news-content ul {
+    list-style: disc inside;
+    padding-left: 20px;
+}
+
+/* ---------------------------------------------------- */
+/* プリローダー スタイル (変更なし) */
+/* ---------------------------------------------------- */
+
+#preloader {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ffffff; 
+    z-index: 9999; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease; 
+}
+
+.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.spinner {
+    border: 4px solid #f3f3f3; 
+    border-top: 4px solid #007bff; 
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite; 
+    margin-bottom: 10px;
+}
+
+#loading-text {
+    font-size: 1.1em;
+    color: #333;
+    font-weight: bold;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* ---------------------------------------------------- */
+/* 検索フォーム スタイル (変更なし) */
+/* ---------------------------------------------------- */
+#search-container {
+    max-width: 960px;
+    margin: 20px auto;
+    padding: 15px 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    display: flex;
+    gap: 10px;
+}
+
+#search-input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+#search-container button {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+#search-container button:hover {
+    background-color: #0056b3;
+}
+
+#search-results {
+    max-width: 960px;
+    margin: 10px auto 30px auto;
+    padding: 0 20px;
+}
+
+#search-results h3 {
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 5px;
+}
+
+#search-results ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#search-results li {
+    padding: 8px 0;
+    border-bottom: 1px dotted #eee;
+}
+
+/* ---------------------------------------------------- */
+/* ハンバーガーメニュー スタイル (モバイル対応) */
+/* ---------------------------------------------------- */
+.menu-toggle {
+    display: none; /* PCでは非表示 */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    position: absolute;
+    top: 0; 
+    right: 10px;
+    z-index: 110;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 5px 0;
+    transition: 0.4s;
+}
+
+/* メディアクエリ: 画面幅が800px以下の場合のスタイル */
+@media (max-width: 800px) {
+    
+    /* 1. ハンバーガーメニューの表示 */
+    .menu-toggle {
+        display: block;
+    }
+    
+    /* 2. メニューを縦並びのモバイルメニューに変換 */
+    .global-nav {
+        justify-content: flex-start;
+        padding: 10px 0; 
+    }
+    
+    .nav-list {
+        display: none; /* デフォルトで隠す */
+        flex-direction: column; /* 縦並び */
+        width: 100%;
+        text-align: left;
+    }
+    
+    /* 3. is-open クラスでメニューを開く */
+    .nav-list.is-open {
+        display: flex;
+    }
+    
+    /* 4. ドロップダウンメニューのモバイル表示調整 */
+    .nav-list li {
+        width: 100%;
+    }
+    
+    .dropdown-menu {
+        position: static; /* absoluteからstaticに変更 */
+        width: 100%;
+        background-color: #3b887a;
+        box-shadow: none;
+        padding: 0;
+    }
+    
+    /* モバイルではホバーではなくクリック（タップ）で開閉するため、ホバー効果を無効化 */
+    .dropdown:hover .dropdown-menu {
+        display: none; 
+    }
+
+    .dropdown-menu a {
+        padding-left: 30px; /* サブメニューを少しインデント */
+    }
+}
