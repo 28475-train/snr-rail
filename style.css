@@ -1,4 +1,4 @@
-/* ============================= */
+//* ============================= */
 /* 0. 全体設定 (リセットとフォント) */
 /* ============================= */
 body {
@@ -102,7 +102,7 @@ h3 {
     color: #1a237e;
 }
 
-/* ラボのウェルカムボックス */
+/* ラボのウェルカムボックス (トップページ用) */
 .lab-welcome {
     border: 1px solid #c62828; /* アクセントカラーで枠線 */
     padding: 20px;
@@ -110,7 +110,7 @@ h3 {
     background-color: #ffffff;
 }
 
-/* アクションボタンのスタイル */
+/* アクションボタンのスタイル (トップページ用) */
 .action-links {
     margin: 30px 0;
     text-align: center;
@@ -159,4 +159,69 @@ h3 {
 
 .site-footer p {
     margin: 5px 0;
+}
+
+
+/* ============================= */
+/* ５．お知らせページ専用スタイル */
+/* ============================= */
+
+.news-list-section {
+    border-top: 1px solid #cccccc;
+}
+
+.news-item {
+    padding: 15px 0;
+    border-bottom: 1px dashed #dddddd; /* 点線で区切ります */
+    display: flex; /* 要素を横に並べるために使用 */
+    align-items: center;
+    gap: 15px;
+}
+
+.news-date {
+    font-size: 14px;
+    color: #6c757d; /* 日付は控えめな色 */
+    flex-shrink: 0;
+    width: 90px;
+}
+
+.news-category {
+    font-size: 12px;
+    padding: 3px 8px;
+    border-radius: 3px;
+    color: #ffffff;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+/* カテゴリーごとの背景色を設定 */
+.official-category {
+    background-color: #1a237e; /* 濃紺（メインカラー） */
+}
+
+.lab-category {
+    background-color: #c62828; /* 濃い赤（アクセントカラー） */
+}
+
+.site-category {
+    background-color: #6c757d; /* グレー */
+}
+
+.news-title {
+    font-weight: normal;
+    font-size: 16px;
+    color: #212529;
+}
+
+.news-title:hover {
+    color: #1a237e;
+    text-decoration: none;
+}
+
+
+/* ６．最新のお知らセクション (ハイライト) */
+.news-new {
+    background-color: #fffde7; /* 非常に薄い黄色で背景をハイライト */
+    border-left: 5px solid #c62828; /* アクセントカラーの赤で左側にラインを追加 */
+    padding-left: 10px;
 }
